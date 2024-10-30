@@ -41,3 +41,19 @@ def test_non_alpha_after_non_sr_ending_words():
 def test_case_insensitivity():
     words = CountWords().count("DOGS Cats caR RAT")
     assert words == 3
+
+
+def test_word_ending_with_r_at_end():
+    # Caso extra: una palabra termina en 'r', y el if final se evalúa como True.
+    words = CountWords().count("car")
+    assert words == 1
+
+def test_sentence_with_mixed_endings():
+    # Caso adicional para verificar funcionamiento con mezcla de finales de palabras.
+    words = CountWords().count("car star flower")
+    assert words == 2
+
+def test_single_word_no_ending_with_s_or_r():
+    # Verifica que no cuente ninguna palabra cuando no termina en 's' o 'r'
+    words = CountWords().count("flower")
+    assert words == 0
