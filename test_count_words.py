@@ -33,3 +33,7 @@ def test_empty_string():
 def test_only_non_alpha():
     words = CountWords().count("!!!")
     assert words == 0
+
+def test_non_alpha_after_non_sr_ending_words():
+    words = CountWords().count("apple, banana; orange.")
+    assert words == 0  # Las palabras no terminan en 's' o 'r', así que el if es siempre falso
