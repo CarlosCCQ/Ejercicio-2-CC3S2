@@ -37,3 +37,7 @@ def test_only_non_alpha():
 def test_non_alpha_after_non_sr_ending_words():
     words = CountWords().count("apple, banana; orange.")
     assert words == 0  # Las palabras no terminan en 's' o 'r', así que el if es siempre falso
+
+def test_case_insensitivity():
+    words = CountWords().count("DOGS Cats caR RAT")
+    assert words == 3

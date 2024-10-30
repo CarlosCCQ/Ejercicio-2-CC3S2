@@ -6,11 +6,11 @@ class CountWords:
         last = ' '
 
         for char in s:
-            if not char.isalpha() and (last == 's' or last == 'r'):
+            if not char.isalpha() and (last.lower() == 's' or last.lower() == 'r'):
                 words += 1
             last = char
 
-        if last == 'r' or last == 's':
+        if last.lower() == 'r' or last.lower() == 's':
             words += 1
 
         return words
